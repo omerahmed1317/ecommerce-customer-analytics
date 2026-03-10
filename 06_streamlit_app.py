@@ -33,6 +33,8 @@ import pandas as pd
 import numpy as np
 import pickle
 import os
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
@@ -139,12 +141,12 @@ with left_col:
         value=8, help="How many unique orders has this customer placed?"
     )
     total_revenue = st.number_input(
-        "Total Revenue (£)", min_value=0.0, max_value=50000.0,
+        "Total Revenue (GBP)", min_value=0.0, max_value=50000.0,
         value=450.0, step=50.0,
         help="Total amount spent by the customer across all orders"
     )
     avg_order_value = st.number_input(
-        "Avg Order Value (£)", min_value=0.0, max_value=5000.0,
+        "Avg Order Value (GBP)", min_value=0.0, max_value=5000.0,
         value=56.0, step=5.0,
         help="Average spend per order"
     )
@@ -341,7 +343,7 @@ if "rfm" in data:
         ax.bar(seg_revenue.index, seg_revenue.values,
                color=colors, edgecolor="none", width=0.65)
         ax.yaxis.set_major_formatter(
-            plt.FuncFormatter(lambda x, _: f"£{int(x/1000)}k")
+            plt.FuncFormatter(lambda x, _: f"GBP{int(x/1000)}k")
         )
         ax.set_title("Revenue by Segment", color="#FFFFFF", fontweight="bold")
         ax.tick_params(colors="#8B949E", axis="both")

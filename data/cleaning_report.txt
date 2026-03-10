@@ -1,0 +1,22 @@
+============================================================
+  E-COMMERCE DATA — CLEANING REPORT
+  Generated: 2026-03-10 04:26
+============================================================
+
+BEFORE: 60,000 rows × 8 columns
+AFTER:  41,160 rows × 13 columns
+REMOVED: 18,840 rows (31.4%)
+
+ISSUES FIXED:
+1. Unparseable dates:         removed
+2. Return transactions:       4,800 rows -> saved to returns.csv
+3. Non-product rows:          1,111 rows removed
+4. Null Customer IDs:         12,496 rows removed
+5. Invalid prices:            433 rows removed
+6. Description casing:        standardized to UPPERCASE
+7. Country names:             standardized (16 -> 12)
+8. Duplicate rows:            0 rows removed
+
+FEATURES ADDED: TotalRevenue, Year, Month, DayOfWeek, Hour
+
+FINAL: 4,000 unique customers, 15 unique products
